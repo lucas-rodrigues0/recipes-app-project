@@ -26,7 +26,7 @@ function MealCatsButtons() {
 
   return (
     <div className="container">
-      <div className="row d-flex justify-content-center mb-5">
+      <div className="row d-flex justify-content-center mb-5" style={ { backgroundColor: 'rgb(0, 0, 0, 0.7)' } }>
         { meals && meals.map((elem, index) => (
           (index < FIVE) && (
             <button
@@ -35,7 +35,7 @@ function MealCatsButtons() {
               value={ elem.strCategory }
               onClick={ (event) => handleClick(event) }
               data-testid={ `${elem.strCategory}-category-filter` }
-              className="col btn btn-dark btn-rounded m-1"
+              className="col btn btn-outline-light m-1"
             >
               { elem.strCategory }
             </button>
@@ -48,7 +48,7 @@ function MealCatsButtons() {
             dispatch(clearRecipesAction());
             dispatch(clearSearchAction());
           } }
-          className="col btn btn-dark btn-rounded m-1"
+          className="col btn btn-outline-light m-1"
         >
           All
         </button>

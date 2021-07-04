@@ -14,9 +14,9 @@ export default function RecipesCards({ path, elem, type, index }) {
       setColHeight('160px');
       setBtnSize({ height: '140px', width: '110px' });
     } else {
-      setColNumber('col-2 d-flex justify-content-center mb-3');
-      setColHeight('70%');
-      setBtnSize({ height: '200px', width: '180px' });
+      setColNumber('col-4 d-flex justify-content-center mb-3');
+      setColHeight('80%');
+      setBtnSize({ minHeight: '400px', width: '260px' });
     }
   }
 
@@ -30,7 +30,7 @@ export default function RecipesCards({ path, elem, type, index }) {
         type="button"
         onClick={ () => history.push(`${path}/${elem[ `id${type}` ]}`) }
         data-testid={ `${index}-recipe-card` }
-        className="btn btn-dark btn-rounded"
+        className="btn btn-outline-light d-flex justify-content-start"
         style={ btnSize }
       >
         <div>
@@ -40,9 +40,9 @@ export default function RecipesCards({ path, elem, type, index }) {
             alt={ elem[ `str${type}` ] }
             data-testid={ `${index}-card-img` }
           />
-          <div className="mask" style={ { backgroundColor: 'rgb(0, 0, 0, 0.6)' } }>
-            <h4 data-testid={ `${index}-card-name` }>{ elem[ `str${type}` ] }</h4>
-            <span>{ elem[ `id${type}` ] }</span>
+          <div>
+            <h4 data-testid={ `${index}-card-name` }><strong>{ elem[ `str${type}` ] }</strong></h4>
+            <span><small>{ elem[ `id${type}` ] }</small></span>
           </div>
         </div>
       </button>

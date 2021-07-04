@@ -76,7 +76,7 @@ function DrinksRecipes() {
         <DrinkCatsButtons />
       </section>
       <section className="container">
-        <div className="row d-flex justify-content-between">
+        <div className="row d-flex justify-content-center p-3" style={{ backgroundColor: 'rgb(0, 0, 0, 0.5)'}}>
         { recipes && recipes.map((elem, index) => (
           <RecipesCards
             key={ elem.idDrink }
