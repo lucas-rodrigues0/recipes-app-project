@@ -6,7 +6,6 @@ import '../CSS/Completed.css';
 import ShareButton from '../components/ShareButton';
 import LikeButton from '../components/LikeButton';
 import { findKey } from '../services/index';
-import '../CSS/FoodDetail.css';
 
 function ProgressMeal() {
   const { singleRecipe } = useSelector((state) => state.recipes);

@@ -6,7 +6,6 @@ import ShareButton from '../components/ShareButton';
 import fetchDrinkActionId from '../redux/actions/fetchDrink';
 import '../CSS/Completed.css';
 import { findKey } from '../services/index';
-import '../CSS/FoodDetail.css';
 
 function ProgressDrink() {
   const { singleRecipe } = useSelector((state) => state.recipes);

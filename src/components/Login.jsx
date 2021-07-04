@@ -69,7 +69,7 @@ export default function Login() {
             data-testid="login-submit-btn"
             onClick={ handleClick }
             disabled={ !verification }
-            className="mt-3 btn btn-dark btn-rounded"
+            className="mt-3 btn btn-outline-light"
           >
             Entrar
           </button>

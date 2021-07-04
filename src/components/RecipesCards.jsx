@@ -5,18 +5,27 @@ import { useHistory } from 'react-router';
 export default function RecipesCards({ path, elem, type, index }) {
   const [ colNumber, setColNumber ] = useState('');
   const [ colHeight, setColHeight ] = useState('');
-  const [ btnSize, setBtnSize ] = useState({ height: '', width: '' });
+  const [ btnSize, setBtnSize ] = useState({});
+  const [ imgSize, setImgSize ] = useState({});
+  const [ nameSize, setNameSize ] = useState('');
+  const [ infoSize, setInfoSize ] = useState({});
   const history = useHistory();
 
   const setColumns = () => {
     if (window.innerWidth < 400) {
-      setColNumber('col-6 d-flex justify-content-center');
-      setColHeight('160px');
-      setBtnSize({ height: '140px', width: '110px' });
+      setColNumber('col-6 d-flex justify-content-center mb-3');
+      setColHeight('180px');
+      setBtnSize({ minWidth: '130px' });
+      setImgSize({ maxWidth: '110px' });
+      setNameSize('h6');
+      setInfoSize({ height: '60px', overflowY: 'scroll' });
     } else {
       setColNumber('col-4 d-flex justify-content-center mb-3');
       setColHeight('80%');
       setBtnSize({ minHeight: '400px', width: '260px' });
+      setImgSize({ maxWidth: '260px' });
+      setNameSize('h4');
+      setInfoSize({})
     }
   }
 
@@ -33,15 +42,17 @@ export default function RecipesCards({ path, elem, type, index }) {
         className="btn btn-outline-light d-flex justify-content-start"
         style={ btnSize }
       >
-        <div>
+        <div style={ imgSize }>
           <img
-            className="w-100"
+            className="img-responsive w-100"
             src={ elem[ `str${type}Thumb` ] }
             alt={ elem[ `str${type}` ] }
             data-testid={ `${index}-card-img` }
           />
-          <div>
-            <h4 data-testid={ `${index}-card-name` }><strong>{ elem[ `str${type}` ] }</strong></h4>
+          <div style={ infoSize }>
+            <p className={ nameSize } data-testid={ `${index}-card-name` }>
+              <strong>{ elem[ `str${type}` ] }</strong>
+            </p>
             <span><small>{ elem[ `id${type}` ] }</small></span>
           </div>
         </div>
