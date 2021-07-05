@@ -90,25 +90,6 @@ function ProgressMeal() {
     return true;
   };
 
-  // const finishRecipe = () => {
-  //   const doneStorage = (localStorage.getItem('doneRecipes'))
-  //     ? JSON.parse(localStorage.getItem('doneRecipes'))
-  //     : [];
-  //   const doneRecipe = {
-  //     id: arrayMeat.idMeal,
-  //     type: 'comida',
-  //     area: arrayMeat.strArea ? arrayMeat.strArea : '',
-  //     category: arrayMeat.strCategory ? arrayMeat.strCategory : '',
-  //     alcoholicOrNot: '',
-  //     name: arrayMeat.strMeal,
-  //     image: arrayMeat.strMealThumb,
-  //     doneDate: new Date().toLocaleDateString(),
-  //     tags: arrayMeat.strTags ? arrayMeat.strTags.split(',') : [],
-  //   };
-  //   const newStorage = [...doneStorage, doneRecipe];
-  //   localStorage.setItem('doneRecipes', JSON.stringify(newStorage));
-  // };
-
   const renderMeal = () => (
     arrayMeat !== undefined && (
       <div className="detail-main-container">
@@ -148,7 +129,6 @@ function ProgressMeal() {
           type="button"
           disabled={ verifyDisable() }
           onClick={ () => {
-            // finishRecipe();
             history.push('/receitas-feitas');
           } }
           className="regular-button beginRecipe-btn"
@@ -166,15 +146,3 @@ function ProgressMeal() {
 }
 
 export default ProgressMeal;
-
-// [{
-//     id: id-da-receita,
-//     type: comida-ou-bebida,
-//     area: area-da-receita-ou-texto-vazio,
-//     category: categoria-da-receita-ou-texto-vazio,
-//     alcoholicOrNot: alcoholic-ou-non-alcoholic-ou-texto-vazio,
-//     name: nome-da-receita,
-//     image: imagem-da-receita,
-//     doneDate: quando-a-receita-foi-concluida,
-//     tags: array-de-tags-da-receita-ou-array-vazio
-// }]

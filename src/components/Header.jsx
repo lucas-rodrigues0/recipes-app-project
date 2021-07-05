@@ -13,7 +13,7 @@ export default function Header() {
   if (!pathname.includes('explorar') && !pathname.includes('perfil')
     && !pathname.includes('receitas')) {
     return (
-      <header className="container-fluid">
+      <header className="container-fluid position-fixed" style={ { zIndex: '6' } }>
         <div className="mb-5">
           <PerfilLink />
           <HeaderTitle title={ pathname } />
@@ -24,7 +24,7 @@ export default function Header() {
   }
   if (aTitle[ 3 ] === 'origem') {
     return (
-      <header className="container-fluid">
+      <header className="container-fluid position-fixed" style={ { zIndex: '6' } }>
         <div className="mb-5">
           <PerfilLink />
           <HeaderTitle title={ pathname } />
@@ -34,7 +34,7 @@ export default function Header() {
     );
   }
   return (
-    <header className="container-fluid">
+    <header className="container-fluid position-fixed" style={ { zIndex: '6' } }>
       <div className="mb-5">
         <PerfilLink />
         <HeaderTitle title={ pathname } />

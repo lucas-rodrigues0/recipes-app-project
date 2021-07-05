@@ -71,7 +71,7 @@ export default function Login() {
             disabled={ !verification }
             className="mt-3 btn btn-outline-light"
           >
-            Entrar
+            Enter
           </button>
         </div>
       </form>

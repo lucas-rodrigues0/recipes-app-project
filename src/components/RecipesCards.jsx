@@ -34,7 +34,7 @@ export default function RecipesCards({ path, elem, type, index }) {
   }, []);
 
   return (
-    <div className={ colNumber } style={ { height: colHeight } }>
+    <div className={ colNumber } style={ { height: colHeight, position: 'relative', zIndex: '4' } }>
       <button
         type="button"
         onClick={ () => history.push(`${path}/${elem[ `id${type}` ]}`) }

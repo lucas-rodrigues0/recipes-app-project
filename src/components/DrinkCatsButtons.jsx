@@ -26,6 +26,7 @@ function DrinkCatsButtons() {
 
   return (
     <div className="container">
+      <div style={ { height: '160px' } } />
       <div className="row d-flex justify-content-center mb-5" style={ { backgroundColor: 'rgb(0, 0, 0, 0.7)' } }>
         { drinks && drinks.map((elem, index) => (
           (index < FIVE) && (
