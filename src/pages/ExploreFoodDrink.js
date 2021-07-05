@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '../components/Button';
@@ -7,9 +7,14 @@ import Header from '../components/Header';
 import { RANDOM_RECIPE } from '../redux/actions';
 import { clearRandom, fetchRandomDrinkAction,
   fetchRandomMealAction } from '../redux/actions/randomRecipes';
-import '../CSS/Explore.css';
+import mealDesktopImage from '../images/Meals_Desktop.png';
+import mealMobileImage from '../images/Meals_Mobile.png';
+import drinkDesktopImage from '../images/Drinks_Desktop.png';
+import drinkMobileImage from '../images/Drinks_Mobile.png';
 
 function ExploreFoodDrink() {
+  const [ bgImage, setBgImage ] = useState('');
+  const [ btnSize, setBtnSize ] = useState('');
   const history = useHistory();
   const dispatch = useDispatch();
   const { random } = useSelector((state) => state.recipes);
@@ -19,6 +24,26 @@ function ExploreFoodDrink() {
   const randomClick = () => {
     dispatch({ type: RANDOM_RECIPE });
   };
+
+  const setImageSize = () => {
+    if(window.innerWidth < 400 && pathname.split('/')[2] === 'comidas') {
+      setBgImage(mealMobileImage);
+      setBtnSize('col px-5 py-3 mask justify-content-center');
+    } else if(window.innerWidth < 400 && pathname.split('/')[2] === 'bebidas') {
+      setBgImage(drinkMobileImage);
+      setBtnSize('col px-5 py-3 mask justify-content-center');
+    } else if(window.innerWidth >= 400 && pathname.split('/')[2] === 'comidas') {
+      setBgImage(mealDesktopImage);
+      setBtnSize('col-6 px-5 py-3 mask justify-content-center');
+    } else if(window.innerWidth >= 400 && pathname.split('/')[2] === 'bebidas') {
+      setBgImage(drinkDesktopImage);
+      setBtnSize('col-6 px-5 py-3 mask justify-content-center');
+    }
+  }
+
+  useEffect(() => {
+    setImageSize();
+  }, []);
 
   useEffect(() => {
     let dispatchRecipes;
@@ -40,30 +65,38 @@ function ExploreFoodDrink() {
 
   useEffect(() => () => dispatch(clearRandom()), []);
 
+  const backImage = {
+    backgroundImage: `url(${bgImage})`,
+    height: '100vh'
+  }
+
   return (
-    <section className="Explore-main-container">
+    <section className="bg-image" style={backImage}>
       <Header />
-      <div className="explore-btn-container">
-        { pathname === '/explorar/comidas' && <Button /> }
-        <button
-          onClick={ () => history
-            .push(`/explorar/${pathname.split('/')[2]}/ingredientes`) }
-          data-testid="explore-by-ingredient"
-          type="button"
-          className="explore-btn regular-button"
-        >
-          Por Ingredientes
-
-        </button>
-        <button
-          onClick={ randomClick }
-          data-testid="explore-surprise"
-          type="button"
-          className="explore-btn regular-button"
-        >
-          Me Surpreenda!
-
-        </button>
+      <div className="container">
+        <div style={ { height: '160px' } } />
+        <div className="row d-flex align-items-center justify-content-center">
+          <div className={ btnSize } style={ { backgroundColor: 'rgb(0, 0, 0, 0.8)' } }>
+            { pathname === '/explorar/comidas' && <Button /> }
+            <button
+              onClick={ () => history
+                .push(`/explorar/${pathname.split('/')[2]}/ingredientes`) }
+              data-testid="explore-by-ingredient"
+              type="button"
+              className="btn btn-outline-light btn-lg d-block w-100 p-2 m-3"
+            >
+              Por Ingredientes
+            </button>
+            <button
+              onClick={ randomClick }
+              data-testid="explore-surprise"
+              type="button"
+              className="btn btn-outline-light btn-lg d-block w-100 p-2 m-3"
+            >
+              Me Surpreenda!
+            </button>
+          </div>
+        </div>
       </div>
       <Footer />
     </section>

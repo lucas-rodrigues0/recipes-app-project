@@ -8,7 +8,7 @@ function Button() {
       onClick={ () => history.push('/explorar/comidas/area') }
       data-testid="explore-by-area"
       type="button"
-      className="explore-btn regular-button"
+      className="btn btn-outline-light btn-lg d-block w-100 p-2 m-3"
     >
       Por Local de Origem
     </button>
