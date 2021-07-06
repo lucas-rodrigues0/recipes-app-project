@@ -6,12 +6,15 @@ import ShareButton from './ShareButton';
 import LikeButton from './LikeButton';
 import Recomendation from './Recomendation';
 import IngredientList from '../components/IngredientList';
+import IngredientInProgressList from '../components/IngredientInProgressList';
 import BeginContinueRecipeBtn from './BeginContinueRecipeBtn';
+import FinishRecipeBtn from './FinishRecipeBtn';
 
 export default function FoodDetailMobile({ recipe }) {
   const history = useHistory();
   const { pathname } = history.location;
   const type = (pathname.split('/')[ 1 ] === 'comidas') ? 'Meal' : 'Drink';
+  const inProgressState = pathname.includes('in-progress');
 
   return (
     <>
@@ -39,7 +42,7 @@ export default function FoodDetailMobile({ recipe }) {
         />
         <h4>Ingredients:</h4>
         <div className="p-3">
-          <IngredientList />
+          { (inProgressState) ? <IngredientInProgressList /> : <IngredientList /> }
         </div>
         <h4>Instructions:</h4>
         <div className="p-3">
@@ -70,7 +73,7 @@ export default function FoodDetailMobile({ recipe }) {
         </div>
       </div>
       <div className="row justify-content-center">
-        <BeginContinueRecipeBtn />
+        { (inProgressState) ? <FinishRecipeBtn /> : <BeginContinueRecipeBtn /> }
       </div>
       <div style={ { height: '60px' } } />
     </>

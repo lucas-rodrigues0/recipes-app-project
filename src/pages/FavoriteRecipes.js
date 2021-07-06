@@ -84,20 +84,20 @@ function FavoriteRecipes() {
               </div>
             </Link>
           </div>
-            <div style={ btnsPosition }>
-              <ShareButton
-                dataTestId={ `${index}-horizontal-share-btn` }
-                recipeId={ recipe.id }
-                recipeType={ recipe.type }
-              />
-              <FavoritePageLikeBtn
-                dataTestId={ `${index}-horizontal-favorite-btn` }
-                recipeId={ recipe.id }
-                reRender={ reRender }
-                setReRender={ setReRender }
-              />
-            </div>
+          <div style={ btnsPosition }>
+            <ShareButton
+              dataTestId={ `${index}-horizontal-share-btn` }
+              recipeId={ recipe.id }
+              recipeType={ recipe.type }
+            />
+            <FavoritePageLikeBtn
+              dataTestId={ `${index}-horizontal-favorite-btn` }
+              recipeId={ recipe.id }
+              reRender={ reRender }
+              setReRender={ setReRender }
+            />
           </div>
+        </div>
       </section>
     );
   }
@@ -105,7 +105,16 @@ function FavoriteRecipes() {
   function generateListOfCards() {
     if (favoriteRecipesStorage.length === 0) {
       return (
-        <div className="user-title no-recipe">No favorite recipes yet!</div>
+        <div className="row">
+          <div className="col d-flex justify-content-center w-50">
+            <p
+              className="h3 text-light text-center fw-bold p-4"
+              style={ { backgroundColor: 'rgb(0, 0, 0, 0.5)' } }
+            >
+              No favorite recipes yet!
+            </p>
+          </div>
+        </div>
       );
     }
     if (filterSelector === 'all' && favoriteRecipesStorage) {
@@ -144,10 +153,12 @@ function FavoriteRecipes() {
     <section className="bg-image" style={backImage}>
       <section >
         <Header />
-        <FilterTypeBtn handleSelector={ handleSelector } />
       </section>
       <section className="container">
-        <div style={ { height: '160px'} }/>
+        <div style={ { height: '160px' } } />
+        <div className="p-3">
+          <FilterTypeBtn handleSelector={ handleSelector } />
+        </div>
         { generateListOfCards() }
       </section>
       <div style={ { height: '60px'} }/>
