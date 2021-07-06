@@ -24,6 +24,7 @@ function LoginPage() {
     backgroundImage: `url(${bgImage})`,
     height: '100vh'
   }
+
   return (
     <div className="bg-image" style={backImage}>
       <h1 className="login-title">Recipes App</h1>

@@ -74,7 +74,7 @@ function ExploreFoodDrink() {
     <section className="bg-image" style={backImage}>
       <Header />
       <div className="container">
-        <div style={ { height: '160px' } } />
+        <div style={ { height: '220px' } } />
         <div className="row d-flex align-items-center justify-content-center">
           <div className={ btnSize } style={ { backgroundColor: 'rgb(0, 0, 0, 0.8)' } }>
             { pathname === '/explorar/comidas' && <Button /> }
