@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import FilterTypeBtn from '../components/FilterTypeBtn';
 import Header from '../components/Header';
 import ShareButton from '../components/ShareButton';
-import '../CSS/ProfilePage.css';
 import desktopImage from '../images/Login_Desktop.png';
 import mobileImage from '../images/Login_Mobile.png';
 

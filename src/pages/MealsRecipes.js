@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
+
 import fetchMealThunk from '../redux/actions/fetchMealAction';
 import { clearRecipesAction } from '../redux/actions/clearRecipesAction';
 import clearSearchAction from '../redux/actions/clearSearchAction';
-import MealCatsButtons from '../components/MealCatsButton';
 import fetchRecipesMealCatsThunk from '../redux/actions/fetchMealCatRecipesAction';
 import { fetchMealIFilterThunk } from '../redux/actions/fetchIngridientsAction';
+
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import MealCatsButtons from '../components/MealCatsButton';
 import RecipesCards from '../components/RecipesCards';
+
 import desktopImage from '../images/Meals_Desktop.png';
 import mobileImage from '../images/Meals_Mobile.png';
 
 function MealsRecipes() {
+  const {
+    inputValue,
+    inputType,
+    mealFilter,
+    ingredientFilter,
+  } = useSelector((state) => state.search);
+  const { recipes } = useSelector((state) => state.recipes);
   const [ bgImage, setBgImage ] = useState('');
   const dispatch = useDispatch();
 
@@ -25,17 +35,14 @@ function MealsRecipes() {
     }
   }
 
+  const backImage = {
+    backgroundImage: `url(${bgImage})`,
+    height: '100vh'
+  }
+
   useEffect(() => {
     setImageSize();
   }, []);
-
-  const {
-    inputValue,
-    inputType,
-    mealFilter,
-    ingredientFilter,
-  } = useSelector((state) => state.search);
-  const { recipes } = useSelector((state) => state.recipes);
 
   useEffect(() => {
     let fetchMeal;
@@ -61,11 +68,6 @@ function MealsRecipes() {
   useEffect(() => {
     if (recipes.length === 1) return <Redirect to={ `/comidas/${recipes[0].idMeal}` } />;
   }, []);
-
-  const backImage = {
-    backgroundImage: `url(${bgImage})`,
-    height: '100vh'
-  }
 
   return (
     <section className="bg-image" style={backImage}>

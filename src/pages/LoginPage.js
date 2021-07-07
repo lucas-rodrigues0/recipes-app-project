@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Login from '../components/Login';
-import '../CSS/LoginPage.css';
+
 import desktopImage from '../images/Login_Desktop.png';
 import mobileImage from '../images/Login_Mobile.png';
+
+const styleLogin = {
+  backgroundColor: 'rgb(7, 6, 6, 0.7)',
+  color: '#e3e0de',
+  fontFamily: 'Impact, Arial Narrow Bold, sans-serif',
+  fontWeight: '800',
+  height: '60px',
+  paddingTop: '10px',
+  textAlign: 'center',
+  width: '100%',
+}
 
 function LoginPage() {
   const [ bgImage, setBgImage ] = useState('');
@@ -26,8 +37,8 @@ function LoginPage() {
   }
 
   return (
-    <div className="bg-image" style={backImage}>
-      <h1 className="login-title">Recipes App</h1>
+    <div className="bg-image" style={ backImage }>
+      <h1 style={ styleLogin }>Recipes App</h1>
       <Login />
     </div>
   );

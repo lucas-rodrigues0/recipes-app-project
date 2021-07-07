@@ -4,7 +4,6 @@ import FilterTypeBtn from '../components/FilterTypeBtn';
 import Header from '../components/Header';
 import ShareButton from '../components/ShareButton';
 import FavoritePageLikeBtn from '../components/FavoritePageLikeBtn';
-import '../CSS/ProfilePage.css';
 import desktopImage from '../images/Login_Desktop.png';
 import mobileImage from '../images/Login_Mobile.png';
 

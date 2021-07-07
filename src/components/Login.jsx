@@ -33,11 +33,19 @@ export default function Login() {
 
   return (
     <div className="row d-flex align-items-center justify-content-center">
-      <form className="p-5 mt-5 col-md-3 mask" style={ { backgroundColor: 'rgb(0, 0, 0, 0.6)' } }>
+      <form
+        className="p-5 mt-5 col-md-3 mask"
+        style={ { backgroundColor: 'rgb(0, 0, 0, 0.6)' } }
+      >
         { redirect && <Redirect to="/comidas" /> }
-        <div className="container flex-column align-items-center justify-content-center">
+        <div
+          className="container flex-column align-items-center justify-content-center"
+        >
           <div>
-            <label htmlFor="email-login" className="row form-label">
+            <label
+              htmlFor="email-login"
+              className="row form-label text-light mb-4"
+            >
               Email address
               <input
                 id="email-login"
@@ -46,11 +54,15 @@ export default function Login() {
                 data-testid="email-input"
                 value={ email }
                 onChange={ ({ target }) => setEmail(target.value) }
+                className="form-control mt-2"
               />
             </label>
           </div>
           <div>
-            <label htmlFor="password-login" className="row form-label">
+            <label
+              htmlFor="password-login"
+              className="row form-label text-light"
+            >
               Password
               <input
                 id="password-login"
@@ -59,6 +71,7 @@ export default function Login() {
                 data-testid="password-input"
                 value={ password }
                 onChange={ ({ target }) => setPassword(target.value) }
+                className="form-control mt-2"
               />
             </label>
           </div>
@@ -69,7 +82,7 @@ export default function Login() {
             data-testid="login-submit-btn"
             onClick={ handleClick }
             disabled={ !verification }
-            className="mt-3 btn btn-outline-light"
+            className="mt-4 btn btn-outline-light w-100"
           >
             Enter
           </button>

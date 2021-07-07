@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import '../CSS/Explore.css';
 import desktopImage from '../images/Login_Desktop.png';
 import mobileImage from '../images/Login_Mobile.png';
 
